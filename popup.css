@@ -1,0 +1,10 @@
+textarea{
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+button{
+    width: 300px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="options.css">
+    </head>
+    <body>
+        <main>
+            <h1>A Obsidian Web Clipper</h1>
+            <div class="form-group">
+                <label for="obsidian_uri_pattern">Obsidian URI Pattern</label><br/>
+                <input id="obsidian_uri_pattern" name="obsidian_uri_pattern" type="text" placeholder="obsidian://advanced-uri?vault=notes&daily=true&mode=append&data={note}">
+            </div>
+            <div id="status"></div>
+            <button style="margin-bottom: 20px;" id="save">Save</button>
+        </main>
+    <script src="options.js"></script>
+</body>
+</html>

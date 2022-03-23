@@ -1,0 +1,30 @@
+{
+    "name": "A Obsidian Web Clipper",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "clip things to Obsidian",
+    "action": {
+        "default_title": "A Obsidian Web Clipper",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+        }
+    ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab"
+    ],
+    "icons": { 
+        "16": "icons/favicon-16x16.png",
+        "48": "icons/favicon-48x48.png",
+        "128": "icons/favicon-128x128.png"
+    }
+}
