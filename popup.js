@@ -11,6 +11,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
 
     $("#confirm").click(function(){
         var result = $("#clipcontent").val()
+        result = result.replace(/%/,"%25")
         var note = encodeURIComponent(result)
 
         var clipNoteUri = obsidianUriPatthern;
@@ -29,7 +30,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
         var url = tab.url
         var defaultNoteFormat = ` #webclip 
   > {clip}
-  >	from [{title}]({url})`
+  >	-- from [{title}]({url})`
         note = defaultNoteFormat
         var clip = resp.data.replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, '')
         note = note.replace(/{clip}/g, clip)
