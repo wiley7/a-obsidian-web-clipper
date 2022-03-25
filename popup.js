@@ -28,8 +28,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
         var title = tab.title.replace(/\//g, '')
         var url = tab.url
         var defaultNoteFormat = ` #webclip 
-    - [{title}]({url})
-  > {clip}`
+  > {clip}
+  >	from [{title}]({url})`
         note = defaultNoteFormat
         var clip = resp.data.replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, '')
         note = note.replace(/{clip}/g, clip)
