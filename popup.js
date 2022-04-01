@@ -21,6 +21,12 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
         chrome.tabs.create({ url: clipNoteUri });
     });
 
+    $("#clipcontent").keydown(function (event) {
+        if (event.keyCode == 13 && (event.metaKey || event.ctrlKey)) {
+            $('#confirm').click();
+        }
+    });
+
     var tab = tabs[0];
 
 
