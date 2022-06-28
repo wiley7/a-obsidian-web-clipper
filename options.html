@@ -11,6 +11,13 @@
                 <label for="obsidian_uri_pattern">Obsidian URI Pattern</label><br/>
                 <input id="obsidian_uri_pattern" name="obsidian_uri_pattern" type="text" placeholder="obsidian://advanced-uri?vault=notes&daily=true&mode=append&data={note}">
             </div>
+            <div class="form-group">
+                <label for="obsidian_note_format">Obsidian Note Format</label><br/>
+                <textarea id="obsidian_note_format" name="obsidian_note_format" type="text" placeholder="">
+- #webclip {clip}
+    - from [{title}]({url})
+                </textarea>
+            </div>
             <div id="status"></div>
             <button style="margin-bottom: 20px;" id="save">Save</button>
         </main>

@@ -1,11 +1,14 @@
 
 var defaultClippingOptions = {
-    obsidianUriPatthern: "obsidian://advanced-uri?vault=notes&daily=true&mode=append&data={note}"
+    obsidianUriPatthern: "obsidian://advanced-uri?vault=notes&daily=true&mode=append&data={note}",
+    obsidianNoteFormat: `- #webclip {clip}
+    - from [{title}]({url})`
 }
 // Get vault & and if we clip as a new note:
 chrome.storage.local.get(defaultClippingOptions, function(clippingOptions){
 
 const obsidianUriPatthern = clippingOptions.obsidianUriPatthern;
+const obsidianNoteFormat = clippingOptions.obsidianNoteFormat;
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
     console.log("start")
 
@@ -34,10 +37,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
         console.log(resp)
         var title = tab.title.replace(/\//g, '')
         var url = tab.url
-        var defaultNoteFormat = ` #webclip 
-  > {clip}
-  >	-- from [{title}]({url})`
-        note = defaultNoteFormat
+        var note = obsidianNoteFormat
         var clip = resp.data.replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, '')
         note = note.replace(/{clip}/g, clip)
         note = note.replace(/\n/g, "\n  ")
